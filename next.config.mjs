@@ -15,9 +15,10 @@ const withNextra = nextra({
 
 export default withNextra(
   withBundleAnalyzer({
+    output: 'standalone', // 👈 新增这一行：开启独立构建模式，专为 VPS 部署准备
     reactStrictMode: false,
     cleanDistDir: true,
-    agentRules: false, // <-- Don't let `next dev` append its block to CLAUDE.md (since Next.js v16.3)
+    agentRules: false, 
     experimental: {
       optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
     },
@@ -26,10 +27,11 @@ export default withNextra(
         '*.svg': {
           loaders: ['turbopack-inline-svg-loader'],
           condition: {
-            content: /^[\s\S]{0,4000}$/, // <-- Inline SVGs smaller than ~4Kb (since Next.js v16)
+            content: /^[\s\S]{0,4000}$/, 
           },
           as: '*.js',
         },
       },
     },
-  }));
+  })
+);

@@ -6,7 +6,7 @@ import { Group, Text } from '@mantine/core';
 import { IconCoffee, IconHeartFilled } from '@tabler/icons-react';
 import { ColorSchemeControl } from '../ColorSchemeControl/ColorSchemeControl';
 import { HeaderControl } from '../ColorSchemeControl/HeaderControl';
-import { Logo } from '../Logo/Logo';
+import AsuraLogo from '@/components/AsuraLogo' // 👈 确保这行存在且路径正确
 import { MantineNextraThemeObserver } from '../MantineNextraThemeObserver/MantineNextraThemeObserver';
 
 /**
@@ -22,12 +22,12 @@ export const MantineNavBar = () => {
       <MantineNextraThemeObserver />
       <Navbar
         logo={
-          <Group align="center" gap={4}>
-            <Logo />
-            <Text size="xl" fw={600} ff="heading" visibleFrom="xl">
-              Mantine{' '}
+          <Group align="center" gap={8} wrap="nowrap">
+            <AsuraLogo />
+            <Text size="xl" fw={800} ff="heading" visibleFrom="2xl">
+              {' '}
               <Text span inherit c="blue">
-                NextJS + Nextra
+                Im
               </Text>
             </Text>
           </Group>
@@ -35,26 +35,9 @@ export const MantineNavBar = () => {
         // Mantine discord server
         chatLink="https://discord.com/invite/wbH82zuWMN"
         chatIcon={<DiscordIcon width="24" aria-label="Mantine Discord server" />}
-        projectLink="https://github.com/gfazioli/next-app-nextra-template"
+        projectLink="https://asura.im"
       >
-        <Group gap="sm" wrap="nowrap">
-          <ColorSchemeControl />
-          {/* Same square controls as the colour-scheme toggle (mantine.dev's header style), with
-              the icon carrying the colour: Mantine red and orange. The sponsors wall is on the
-              home page, hence `/#sponsors`. */}
-          <HeaderControl component="a" href="/#sponsors" tooltip="Sponsor">
-            <IconHeartFilled size={18} color="var(--mantine-color-red-6)" />
-          </HeaderControl>
-          <HeaderControl
-            component="a"
-            href="https://donate.stripe.com/fZu4gy4Tn3b1dgudGx0co00"
-            target="_blank"
-            rel="noopener noreferrer"
-            tooltip="Buy me a coffee"
-          >
-            <IconCoffee size={18} stroke={1.8} color="var(--mantine-color-orange-6)" />
-          </HeaderControl>
-        </Group>
+       
       </Navbar>
     </>
   );

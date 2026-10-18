@@ -54,7 +54,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           nonce={head.mantine.nonce}
           defaultColorScheme={head.mantine.defaultColorScheme}
         />
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <body>
         <MantineProvider theme={theme} defaultColorScheme={head.mantine.defaultColorScheme}>

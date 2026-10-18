@@ -30,7 +30,7 @@ export default {
       // https://github.com/vercel/next.js/discussions/50189#discussioncomment-10826632
       url: './',
       siteName: 'Mantine',
-      locale: 'en_US',
+      locale: 'zh_CN',
       type: 'website',
     },
     other: {
@@ -103,6 +103,6 @@ export default {
     defaultMaxResults: 5,
     excerptLengthKeyword: 'excerptLength',
     defaultExcerptLength: 30,
-    defaultLanguage: 'en',
+    defaultLanguage: 'zh_CN',
   },
 } as const;

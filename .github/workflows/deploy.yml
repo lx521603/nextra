@@ -1,0 +1,84 @@
+name: Deploy Next.js to VPS
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Enable Corepack (for Yarn)
+        run: corepack enable
+
+      - name: Setup Yarn
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build Next.js project
+        run: yarn build
+
+      # 🌟 步骤 1：同步 standalone 产物
+      - name: Deploy standalone to VPS
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.VPS_HOST }}
+          REMOTE_USER: ${{ secrets.VPS_USER }}
+          SOURCE: ".next/standalone/"
+          TARGET: "/opt/asura/"
+          ARGS: "-avz --delete"
+
+      # 🌟 步骤 2：同步 static 资源
+      - name: Deploy static assets to VPS
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.VPS_HOST }}
+          REMOTE_USER: ${{ secrets.VPS_USER }}
+          SOURCE: ".next/static/"
+          TARGET: "/opt/asura/.next/static/"
+          ARGS: "-avz --delete"
+
+      # 🌟 步骤 3：同步 public 目录
+      - name: Deploy public assets to VPS
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.VPS_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.VPS_HOST }}
+          REMOTE_USER: ${{ secrets.VPS_USER }}
+          SOURCE: "public/"
+          TARGET: "/opt/asura/public/"
+          ARGS: "-avz --delete"
+
+      # 🌟 步骤 4：重启 PM2 服务
+      - name: Restart PM2 service on VPS
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            cd /opt/asura/
+            
+            echo "=== 重启 Next.js 服务 ==="
+            pm2 restart asura-app --update-env || PORT=3005 HOSTNAME="0.0.0.0" pm2 start server.js --name "asura-app"
+            
+            pm2 save
+            
+            echo "✅ Next.js 部署完成！当前状态："
+            pm2 status

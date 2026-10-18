@@ -7,10 +7,10 @@ export default {
   },
   docs: {
     type: 'page',
-    title: 'Documentation',
+    title: '文档',
   },
   community: {
-    title: 'Community',
+    title: '社区',
     type: 'menu',
     items: {
       blog: {
@@ -25,11 +25,11 @@ export default {
   },
   about: {
     type: 'page',
-    title: 'About',
+    title: '关于',
     href: 'https://gfazioli.github.io/',
   },
   support: {
-    title: 'Support',
+    title: '支持',
     type: 'menu',
     items: {
       // Navigates to the home-page Sponsors wall — internal anchor,
