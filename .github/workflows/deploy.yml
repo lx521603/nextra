@@ -40,7 +40,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.VPS_HOST }}
           REMOTE_USER: ${{ secrets.VPS_USER }}
           SOURCE: ".next/standalone/"
-          TARGET: "/opt/asura/"
+          TARGET: "/opt/mirai/"
           ARGS: "-avz --delete"
 
       # 🌟 步骤 2：同步 static 资源
@@ -51,7 +51,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.VPS_HOST }}
           REMOTE_USER: ${{ secrets.VPS_USER }}
           SOURCE: ".next/static/"
-          TARGET: "/opt/asura/.next/static/"
+          TARGET: "/opt/mirai/.next/static/"
           ARGS: "-avz --delete"
 
       # 🌟 步骤 3：同步 public 目录
@@ -62,7 +62,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.VPS_HOST }}
           REMOTE_USER: ${{ secrets.VPS_USER }}
           SOURCE: "public/"
-          TARGET: "/opt/asura/public/"
+          TARGET: "/opt/mirai/public/"
           ARGS: "-avz --delete"
 
       # 🌟 步骤 4：重启 PM2 服务
@@ -73,10 +73,10 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            cd /opt/asura/
-            
+            cd /opt/mirai/
+            pm2 delete mirai-app || true
             echo "=== 重启 Next.js 服务 ==="
-            pm2 restart asura-app --update-env || PORT=3005 HOSTNAME="0.0.0.0" pm2 start server.js --name "asura-app"
+            pm2 restart mirai-app --update-env || PORT=3004 HOSTNAME="0.0.0.0" pm2 start server.js --name "mirai-app"
             
             pm2 save
             

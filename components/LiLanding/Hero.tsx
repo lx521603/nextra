@@ -17,7 +17,7 @@ export default function Hero() {
       <Stack align="center" ta="center" gap="lg" style={{ position: 'relative', zIndex: 2 }}>
         
         {/* 顶部 Badge */}
-        <a href="https://asura.im" target="_blank" rel="noopener noreferrer" className={classes.badge}>
+        <a href="https://mirai.st" target="_blank" rel="noopener noreferrer" className={classes.badge}>
           <IconSparkles size={16} />
           v2.0 刚刚发布，佛系更新中
         </a>
@@ -57,7 +57,7 @@ export default function Hero() {
             "生活的真实点滴",
             "光影的极致追求"
           ]} />
-          。探索 <Anchor href="https://mantine.dev" target="_blank" underline="never" fw={600}>技术的边界</Anchor>，
+          。探索 <Anchor href="https://91.pt" target="_blank" underline="never" fw={600}>技术的边界</Anchor>，
           感受 <Code fz="lg" variant="filled">生活</Code> 的温度。
         </Text>
 

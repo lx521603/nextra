@@ -19,6 +19,14 @@ export default withNextra(
     reactStrictMode: false,
     cleanDistDir: true,
     agentRules: false, 
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'gallery.zaeth.com',
+        },
+      ],
+    },
     experimental: {
       optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
     },

@@ -27,15 +27,15 @@ export const MantineNavBar = () => {
             <Text size="xl" fw={800} ff="heading" visibleFrom="2xl">
               {' '}
               <Text span inherit c="blue">
-                Im
+                Studio
               </Text>
             </Text>
           </Group>
         }
         // Mantine discord server
-        chatLink="https://discord.com/invite/wbH82zuWMN"
+        chatLink="https://go.91.pt/discord"
         chatIcon={<DiscordIcon width="24" aria-label="Mantine Discord server" />}
-        projectLink="https://asura.im"
+        projectLink="https://github.com"
       >
        
       </Navbar>

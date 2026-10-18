@@ -15,18 +15,18 @@ export default {
     items: {
       blog: {
         title: 'Blog',
-        href: 'https://undolog.com/',
+        href: 'https://sai.st/blog',
       },
       medium: {
-        title: 'Medium',
-        href: 'https://medium.com/@giovambattista.fazioli',
+        title: 'Zaeth',
+        href: 'https://zaeth.com',
       },
     },
   },
   about: {
     type: 'page',
     title: '关于',
-    href: 'https://gfazioli.github.io/',
+    href: 'https://zaeth.com',
   },
   support: {
     title: '支持',
@@ -38,20 +38,20 @@ export default {
         title: (
           <Group component="span" gap={8} wrap="nowrap" align="center">
             <IconHeartFilled size={16} />
-            Sponsor
+            文档
           </Group>
         ),
-        href: '/#sponsors',
+        href: '/docs',
       },
       // External donation link — Nextra keeps the ↗ external indicator.
       coffee: {
         title: (
           <Group component="span" gap={8} wrap="nowrap" align="center">
             <IconCoffee size={16} />
-            Buy me a coffee
+            x
           </Group>
         ),
-        href: 'https://donate.stripe.com/fZu4gy4Tn3b1dgudGx0co00',
+        href: 'https://x.com',
       },
     },
   },

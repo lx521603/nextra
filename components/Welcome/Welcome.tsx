@@ -42,7 +42,7 @@ export function Welcome() {
 
       <Center>
         <Button
-          href="https://asura.im"
+          href="https://mirai.st"
           component="a"
           rightSection={<IconExternalLink />}
           leftSection={<IconBrandGithub />}

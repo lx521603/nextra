@@ -1,0 +1,108 @@
+/* components/NextraCards/Card.module.css */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: #3b82f6;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15);
+}
+
+/* 深色模式适配 */
+:global(.dark) .card {
+  border-color: #262626;
+  background-color: #171717;
+}
+:global(.dark) .card:hover {
+  border-color: #3b82f6;
+  background-color: #262626;
+}
+
+.iconBox {
+  display: flex;
+  height: 3rem;
+  width: 3rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background-color: #eff6ff;
+  color: #2563eb;
+  transition: all 0.2s ease;
+}
+
+.card:hover .iconBox {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+:global(.dark) .iconBox {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+}
+:global(.dark) .card:hover .iconBox {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+  transition: color 0.2s ease;
+}
+
+:global(.dark) .title {
+  color: #f3f4f6;
+}
+
+.card:hover .title {
+  color: #2563eb;
+}
+
+:global(.dark) .card:hover .title {
+  color: #60a5fa;
+}
+
+.arrow {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: #9ca3af;
+  transition: all 0.2s ease;
+}
+
+.card:hover .arrow {
+  color: #2563eb;
+  transform: translate(4px, -4px);
+}
+
+:global(.dark) .card:hover .arrow {
+  color: #60a5fa;
+}
+
+.desc {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #6b7280;
+}
+
+:global(.dark) .desc {
+  color: #9ca3af;
+}

@@ -3,6 +3,8 @@
     "@gfazioli/mantine-border-animate": "^3.0.6",
     "@gfazioli/mantine-marquee": "^5.0.2",
     "@gfazioli/mantine-text-animate": "^4.0.16",
+    "@iconify-json/lucide": "^1.2.145",
+    "@iconify-json/simple-icons": "^1.2.100",
     "@mantine/core": "9.7.2",
     "@mantine/hooks": "9.7.2",
     "@mdx-js/loader": "^3.1.1",

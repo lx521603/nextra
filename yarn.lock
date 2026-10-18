@@ -2405,7 +2405,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify/types@npm:^2.0.0":
+"@iconify-json/lucide@npm:^1.2.145":
+  version: 1.2.145
+  resolution: "@iconify-json/lucide@npm:1.2.145"
+  dependencies:
+    "@iconify/types": "npm:*"
+  checksum: 10c0/d8ff3b4c4e843ceb22d7477e3e0ece497f8bab1fc5f873dd96ef93e592084eb35c0277f4ff12fa5b22c69e8e08ee28cfb75c92483d5850c4e0ae240c9a5dda38
+  languageName: node
+  linkType: hard
+
+"@iconify-json/simple-icons@npm:^1.2.100":
+  version: 1.2.100
+  resolution: "@iconify-json/simple-icons@npm:1.2.100"
+  dependencies:
+    "@iconify/types": "npm:*"
+  checksum: 10c0/f2e4fcdedd60a188250793f6955c526a33f94828d6cc7aa6fb5e42358c2c34e8d44deaeb55c5cd19a4e99765620b354e86906d18cc81bdcb85dba79ba4304ed8
+  languageName: node
+  linkType: hard
+
+"@iconify/types@npm:*, @iconify/types@npm:^2.0.0":
   version: 2.0.0
   resolution: "@iconify/types@npm:2.0.0"
   checksum: 10c0/65a3be43500c7ccacf360e136d00e1717f050b7b91da644e94370256ac66f582d59212bdb30d00788aab4fc078262e91c95b805d1808d654b72f6d2072a7e4b2
@@ -11617,6 +11635,8 @@ __metadata:
     "@gfazioli/mantine-border-animate": "npm:^3.0.6"
     "@gfazioli/mantine-marquee": "npm:^5.0.2"
     "@gfazioli/mantine-text-animate": "npm:^4.0.16"
+    "@iconify-json/lucide": "npm:^1.2.145"
+    "@iconify-json/simple-icons": "npm:^1.2.100"
     "@mantine/core": "npm:9.7.2"
     "@mantine/hooks": "npm:9.7.2"
     "@mdx-js/loader": "npm:^3.1.1"
