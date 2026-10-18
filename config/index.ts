@@ -5,11 +5,11 @@ export default {
    */
   metadata: {
     title: {
-      default: 'Mantine Next.js and Nextra template',
-      template: '%s | Mantine Next.js and Nextra template',
+      default: '老李游记',
+      template: '%s | 老李游记',
     },
     description:
-      'A Next.js App Router starter with Mantine 9 and Nextra 4: an MDX documentation site with Mantine components, search, dark mode and release notes.',
+      '老李游记',
     metadataBase: new URL('https://next-app-nextra-template.vercel.app/'),
     keywords: [
       'Mantine',

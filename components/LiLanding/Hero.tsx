@@ -17,7 +17,7 @@ export default function Hero() {
       <Stack align="center" ta="center" gap="lg" style={{ position: 'relative', zIndex: 2 }}>
         
         {/* 顶部 Badge */}
-        <a href="https://mirai.st" target="_blank" rel="noopener noreferrer" className={classes.badge}>
+        <a href="https://zaeth.com" target="_blank" rel="noopener noreferrer" className={classes.badge}>
           <IconSparkles size={16} />
           v2.0 刚刚发布，佛系更新中
         </a>
@@ -30,7 +30,7 @@ export default function Hero() {
           className={classes.headline}
           data-mantine-color-scheme="light" // 强制亮色渐变，或通过 CSS 变量控制
         >
-          <span className={classes.headlineDark}>老李游记，</span>
+          <span className={classes.headlineDark}>老李游记</span>
           <TextAnimate
             animate="in"
             by="character"

@@ -15,7 +15,7 @@ const withNextra = nextra({
 
 export default withNextra(
   withBundleAnalyzer({
-    output: 'standalone', // 👈 新增这一行：开启独立构建模式，专为 VPS 部署准备
+    output: 'standalone',
     reactStrictMode: false,
     cleanDistDir: true,
     agentRules: false, 
@@ -26,7 +26,24 @@ export default withNextra(
           hostname: 'gallery.zaeth.com',
         },
       ],
+      dangerouslyAllowLocalIP: true,
     },
+    
+    allowedDevOrigins: ['192.168.8.102'],
+    
+    async rewrites() {
+      return [
+        {
+          source: '/blog',
+          destination: '/docs/blog',
+        },
+        {
+          source: '/blog/:path*',
+          destination: '/docs/blog/:path*',
+        },
+      ]
+    },
+
     experimental: {
       optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
     },

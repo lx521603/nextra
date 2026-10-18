@@ -1,0 +1,130 @@
+.header {
+  width: 100%;
+  margin: 2rem auto 3rem auto; /* 👈 加上 margin-top: 2rem，和导航栏拉开距离 */
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+  box-sizing: border-box;
+  
+  /* 👇 去掉左右 padding，让内容靠左贴边 */
+  /* padding-left: 0; */
+  /* padding-right: 0; */
+}
+
+:global(.dark) .header {
+  border-bottom-color: rgba(38, 38, 38, 0.8);
+}
+
+/* 顶部徽章 */
+.badgeWrapper {
+  margin-bottom: 1rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  color: #1d4ed8;
+  border: 1px solid rgba(191, 219, 254, 0.6);
+  box-shadow: 0 1px 2px 0 rgba(37, 99, 235, 0.05);
+}
+:global(.dark) .badge {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(30, 64, 175, 0.2) 100%);
+  color: #93c5fd;
+  border-color: rgba(30, 58, 138, 0.5);
+}
+
+/* 标题 - 只需要基础样式，渐变和动画由 TextAnimate 处理 */
+.title {
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+/* Meta 栏 */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+:global(.dark) .meta {
+  color: #94a3b8;
+}
+
+.authors {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.author {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.625rem 0.25rem 0.25rem;
+  border-radius: 9999px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: #334155;
+}
+.author:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+:global(.dark) .author {
+  background-color: #18181b;
+  border-color: #27272a;
+  color: #e4e4e7;
+}
+:global(.dark) .author:hover {
+  background-color: #27272a;
+  border-color: #3f3f46;
+}
+
+.avatar {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.authorName {
+  font-weight: 500;
+  font-size: 0.8125rem;
+}
+
+.separator {
+  color: #cbd5e1;
+  font-size: 0.75rem;
+}
+:global(.dark) .separator {
+  color: #475569;
+}
+
+.date {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #64748b;
+}
+:global(.dark) .date {
+  color: #94a3b8;
+}
+
+/* 描述 */
+.description {
+  line-height: 1.75;
+  max-width: 65ch;
+}
