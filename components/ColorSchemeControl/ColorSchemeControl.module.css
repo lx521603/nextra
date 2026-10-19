@@ -3,6 +3,10 @@
   height: 22px;
 }
 
+:global(.mantine-UnstyledButton-root) {
+  flex-shrink: 0;
+}
+
 .dark {
   @mixin dark {
     display: none;

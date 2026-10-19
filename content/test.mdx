@@ -1,8 +1,50 @@
 ---
-title: Mrai
-description: 老李游记
+title: 流式图文拼图测试
 ---
 
-import LiLanding from '@/components/LiLanding'
+import GridAsymmetrical from '@/components/GridAsymmetrical'
 
-<LiLanding />
+# 流式不对称摄影图文
+
+<GridAsymmetrical
+  items={[
+    // 第一排左边（占 30% 宽，图高 350px）
+    {
+      title: '✨ 笃定的弧度',
+      description: '那种笑不张扬，但你一眼就知道——她清楚自己值得所有的好。',
+      imageUrl: '/landing/Q30A3553.webp',
+      desktopWidth: '30%',
+      imageHeight: 350,
+      objectPosition: 'center' // 靠上对齐截取头部
+    },
+
+    // 第一排右边（占 65% 宽，图高 350px，刚好和左边拼满一行）
+    {
+      title: '每一次快门、每一段文字',
+      description: '都是对时光的温柔收藏。记录着旅途中的风景与街角的偶遇。',
+      imageUrl: '/landing/Q30A0695.webp',
+      desktopWidth: '65%',
+      imageHeight: 350,
+      objectPosition: '60% 60%'
+    },
+
+    // 第二排左边（占 65% 宽）
+    {
+      title: '霓虹流淌的烟火人间',
+      description: '华灯初上，放慢快门，定格这座城市的体温与呼吸。',
+      imageUrl: '/landing/Q30A5015.webp',
+      desktopWidth: '65%',
+      imageHeight: 450,
+      objectPosition: 'center'
+    },
+
+    // 第二排右边（占 30% 宽）
+    {
+      title: '🤪 不设防的生动',
+      description: '最动人的肖像，恰恰诞生于放弃“完美”的那一秒。',
+      imageUrl: '/landing/Q30A3919.webp',
+      desktopWidth: '30%',
+      imageHeight: 450
+    }
+  ]}
+/>

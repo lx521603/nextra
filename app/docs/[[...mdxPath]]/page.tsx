@@ -22,9 +22,9 @@ export default async function Page(props: any) {
     const pathString = mdxPathArray.join('/')
     const isBlogPage = pathString.includes('blog')
     const isBlogIndex = pathString === 'blog' || pathString === 'blog/index' || mdxPathArray.length === 0
-
+   
     // 你想要的全局宽度（列表页和文章页都可以自由调大，比如 1360px 或 1400px）
-    const targetMaxWidth = isBlogIndex ? '1200px' : '1200px' // 如果文章页也想很宽，可以把后面也改大
+    const targetMaxWidth = isBlogIndex ? '1300px' : '1200px' // 如果文章页也想很宽，可以把后面也改大
 
     if (isBlogPage) {
       return (

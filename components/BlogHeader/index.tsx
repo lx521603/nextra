@@ -3,6 +3,7 @@
 import { Title, Text } from '@mantine/core'
 import { TextAnimate } from '@gfazioli/mantine-text-animate'
 import styles from './BlogHeader.module.css'
+import BlogBreadcrumbs from '@/components/BlogBreadcrumbs'
 
 type Author = {
   name: string
@@ -33,6 +34,7 @@ export default function BlogHeader({
 
   return (
     <header className={styles.header}>
+      <BlogBreadcrumbs title={title} />
       {/* 1. 顶部分类标签 */}
       {badgeLabel && (
         <div className={styles.badgeWrapper}>

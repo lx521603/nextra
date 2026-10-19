@@ -5,7 +5,7 @@ import '@gfazioli/mantine-marquee/styles.css';
 import '@gfazioli/mantine-text-animate/styles.css';
 // Mantine theme overrides (page background, heading font)
 import '@/theme/global.css';
-
+import BackToTop from '@/components/BackToTop'
 import { Analytics } from '@vercel/analytics/react';
 import { Outfit } from 'next/font/google';
 import { Layout } from 'nextra-theme-docs';
@@ -39,7 +39,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const { nextraLayout, head } = config;
 
   return (
-    <html lang="en" dir="ltr" className={outfit.variable} {...mantineHtmlProps}>
+    <html lang="zh_CN" dir="ltr" className={outfit.variable} {...mantineHtmlProps}>
       {/* Page background and primary colour of the Nextra theme, set to Mantine's: body
           #fff / #242424 and blue.6 (#228be6) / blue.4 (#4dabf7), as on mantine.dev. */}
       <Head
@@ -74,6 +74,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           >
             {children}
           </Layout>
+          <BackToTop />
         </MantineProvider>
         <Analytics />
       </body>

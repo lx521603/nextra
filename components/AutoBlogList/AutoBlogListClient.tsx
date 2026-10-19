@@ -1,10 +1,8 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
-import Link from 'next/link'
-import styles from './AutoBlogList.module.css'
-
-const POSTS_PER_PAGE = 5
+import { useSearchParams, useRouter } from 'next/navigation'
+import { Box, Group, Pagination } from '@mantine/core'
+import GridAsymmetrical, { GridItemConfig } from '@/components/GridAsymmetrical'
 
 type Post = {
   slug: string
@@ -17,62 +15,61 @@ type Post = {
 
 export default function AutoBlogListClient({ posts }: { posts: Post[] }) {
   const searchParams = useSearchParams()
+  const router = useRouter()
   const currentPage = Number(searchParams.get('page')) || 1
   
-  // 👇 防御性编程：防止 posts 为 undefined 导致报错
+  const POSTS_PER_PAGE = 5  
   const safePosts = posts || []
   const totalPages = Math.ceil(safePosts.length / POSTS_PER_PAGE)
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE
   const currentPosts = safePosts.slice(startIndex, startIndex + POSTS_PER_PAGE)
 
-  return (
-    <>
-      <div className={styles.grid}>
-        {currentPosts.map((post, index) => {
-          const isFeatured = index === 0 && currentPage === 1
-          return (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className={`${styles.card} ${isFeatured ? styles.cardFeatured : ''}`}>
-              <div className={`${styles.imageContainer} ${isFeatured ? styles.imageContainerFeatured : ''}`}>
-                {post.image ? (
-                  <img src={post.image} alt={post.title} loading={index === 0 ? "eager" : "lazy"} className={styles.image} />
-                ) : (
-                  <div style={{display:'flex',alignItems:'center',justifyContent:'center',height:'100%',color:'#9ca3af'}}>无图片</div>
-                )}
-                {post.badge && <span className={styles.badge}>{post.badge}</span>}
-              </div>
+  const gridItems: GridItemConfig[] = currentPosts.map((post, index) => {
+    // 👈 正确：把判断逻辑放在 map 内部，这样每循环到一个卡片时，index 才是对的
+    const isFirstPageHero = currentPage === 1 && index === 0
 
-              <div className={styles.content}>
-                <time className={styles.date}>{new Date(post.date).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-                <h3 className={`${styles.title} ${isFeatured ? styles.titleFeatured : styles.titleNormal}`}>{post.title}</h3>
-                <p className={`${styles.description} ${isFeatured ? styles.descriptionFeatured : styles.descriptionNormal}`}>{post.description}</p>
-                <div className={styles.readMore}>阅读全文 <span className={styles.readMoreArrow}>→</span></div>
-              </div>
-            </Link>
-          )
-        })}
-      </div>
+    return {
+      title: post.title,
+      description: post.description,
+      imageUrl: post.image || '/placeholder.jpg',
+      badge: post.badge,
+      date: new Date(post.date).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' }),
+      href: `/blog/${post.slug}`,
+      
+      // 只有第一页的第一张为 100% 宽度，其余全部平分 50%
+      desktopWidth: isFirstPageHero ? '100%' : 'calc(50% - 0.625rem)',
+      imageHeight: isFirstPageHero ? 380 : 320,
+      
+      // 只有第一页的第一张启用横向“左图右文”
+      isHorizontal: isFirstPageHero, 
+    }
+  })
+
+  const handlePageChange = (page: number) => {
+    if (page === 1) {
+      router.push('/blog')
+    } else {
+      router.push(`/blog?page=${page}`)
+    }
+  }
+
+  return (
+    <Box my="lg">
+      <GridAsymmetrical items={gridItems} gap="1.25rem" />
 
       {totalPages > 1 && (
-        <div className={styles.pagination}>
-          <Link 
-            href={`/blog?page=${currentPage - 1}`}
-            className={`${styles.pageButton} ${currentPage === 1 ? styles.pageButtonDisabled : ''}`}
-          >
-            ← 上一页
-          </Link>
-          
-          <span className={styles.pageInfo}>
-            第 {currentPage} / {totalPages} 页
-          </span>
-          
-          <Link 
-            href={`/blog?page=${currentPage + 1}`}
-            className={`${styles.pageButton} ${currentPage === totalPages ? styles.pageButtonDisabled : ''}`}
-          >
-            下一页 →
-          </Link>
-        </div>
+        <Group justify="center" mt="xl">
+          <Pagination
+            total={totalPages}
+            value={currentPage}
+            onChange={handlePageChange}
+            siblings={1}
+            boundaries={1}
+            radius="md"
+            withControls
+          />
+        </Group>
       )}
-    </>
+    </Box>
   )
 }

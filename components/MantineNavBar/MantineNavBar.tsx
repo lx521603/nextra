@@ -36,8 +36,9 @@ export const MantineNavBar = () => {
         chatLink="https://go.91.pt/discord"
         chatIcon={<DiscordIcon width="24" aria-label="Mantine Discord server" />}
         projectLink="https://github.com"
+
       >
-       
+      <ColorSchemeControl />
       </Navbar>
     </>
   );
