@@ -3,18 +3,14 @@
 import { Navbar } from 'nextra-theme-docs';
 import { DiscordIcon } from 'nextra/icons';
 import { Group, Text } from '@mantine/core';
-import { IconCoffee, IconHeartFilled } from '@tabler/icons-react';
+import { IconBrandInstagram } from '@tabler/icons-react';
 import { ColorSchemeControl } from '../ColorSchemeControl/ColorSchemeControl';
-import { HeaderControl } from '../ColorSchemeControl/HeaderControl';
-import AsuraLogo from '@/components/AsuraLogo' // 👈 确保这行存在且路径正确
+import AsuraLogo from '@/components/AsuraLogo';
 import { MantineNextraThemeObserver } from '../MantineNextraThemeObserver/MantineNextraThemeObserver';
 
 /**
- * You can customize the Nextra NavBar component.
- * Don't forget to use the MantineProvider and MantineNextraThemeObserver components.
- *
+ * Custom Nextra NavBar component.
  * @since 1.0.0
- *
  */
 export const MantineNavBar = () => {
   return (
@@ -25,20 +21,21 @@ export const MantineNavBar = () => {
           <Group align="center" gap={8} wrap="nowrap">
             <AsuraLogo />
             <Text size="xl" fw={800} ff="heading" visibleFrom="2xl">
-              {' '}
-              <Text span inherit c="blue">
+              <Text span inherit c="blue" ml={4}>
                 Studio
               </Text>
             </Text>
           </Group>
         }
-        // Mantine discord server
+        // 社区 Discord 链接
         chatLink="https://go.91.pt/discord"
         chatIcon={<DiscordIcon width="24" aria-label="Mantine Discord server" />}
-        projectLink="https://github.com"
-
+        
+        // 社交/项目链接：Instagram
+        projectLink="https://go.91.pt/instagram"
+        projectIcon={<IconBrandInstagram size={24} aria-label="Instagram profile" />}
       >
-      <ColorSchemeControl />
+        <ColorSchemeControl />
       </Navbar>
     </>
   );
