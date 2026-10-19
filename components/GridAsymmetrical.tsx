@@ -5,7 +5,7 @@ import { ReactNode, CSSProperties } from 'react'
 import Link from 'next/link'
 import ThemeImage from './ThemeImage'
 
-const defaultSkeleton = <Skeleton height="100%" minHeight={260} radius="md" animate={false} />
+const defaultSkeleton = <Skeleton height="100%" radius="md" animate={false} />
 
 export interface GridItemConfig {
   title?: string
