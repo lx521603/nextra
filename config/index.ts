@@ -22,14 +22,14 @@ export default {
       'Static Site Generator',
     ],
     generator: 'Next.js',
-    applicationName: 'Mantine',
+    applicationName: 'Mirai',
     appleWebApp: {
-      title: 'Mantine',
+      title: 'Mirai',
     },
     openGraph: {
       // https://github.com/vercel/next.js/discussions/50189#discussioncomment-10826632
       url: './',
-      siteName: 'Mantine',
+      siteName: 'Mirai Studio',
       locale: 'zh_CN',
       type: 'website',
     },

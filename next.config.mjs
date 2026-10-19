@@ -41,6 +41,10 @@ export default withNextra(
           source: '/blog/:path*',
           destination: '/docs/blog/:path*',
         },
+        {
+          source: '/contact',
+          destination: '/docs/contact',
+        },
       ]
     },
 

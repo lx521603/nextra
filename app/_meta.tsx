@@ -26,6 +26,10 @@ export default {
         title: 'Zaeth',
         href: 'https://zaeth.com',
       },
+      contact: {
+        title: '联系我',
+        href: '/contact',
+      },
     },
   },
  // about: {

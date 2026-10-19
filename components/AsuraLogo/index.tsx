@@ -37,7 +37,7 @@ export default function AsuraLogo({ white = false }: { white?: boolean }) {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         // 👇 强制指定宽高和 display，防止被父容器压缩为 0
-        style={{ width: '40px', height: '40px', display: 'block', flexShrink: 0 }}
+        style={{ width: '36px', height: '36px', display: 'block', flexShrink: 0 }}
       >
         {shouldBlink ? (
           <path fillRule="evenodd" clipRule="evenodd" d="M16.0752 0C7.21095 0 0 7.18587 0 16.0501V30.3853C0 31.2771 0.722918 32 1.61468 32H16.1002C24.9367 32 32.1002 24.8366 32.1002 16C32.1002 7.16344 24.9117 0 16.0752 0ZM24.802 16.0501C26.697 16.0501 28.2332 17.8658 28.2332 15.9708C28.2332 15.9708 26.697 15 24.802 15C22.907 15 21.3708 15.9708 21.3708 15.9708C21.3708 17.8658 22.907 16.0501 24.802 16.0501ZM14.6182 16.0501C16.5133 16.0501 18.0494 17.866 18.0494 15.971C18.0494 15.971 16.395 15 14.5 15C12.605 15 11.1871 15.971 11.1871 15.971C11.1871 17.866 12.7233 16.0501 14.6182 16.0501Z" fill="currentColor" />

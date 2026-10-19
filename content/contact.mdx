@@ -1,0 +1,40 @@
+---
+title: 联系我
+description: 欢迎通过表单与我取得联系
+---
+
+import Contact from '@/components/Contact'
+
+<style>{`
+  /* 1. 彻底隐藏左右侧边栏、TOC 及反馈编辑栏 */
+  aside,
+  .nextra-toc,
+  nav[aria-label="table of contents"],
+  .nextra-sidebar-container,
+  .nextra-feedback,
+  .nextra-edit-link,
+  footer nav {
+    display: none !important;
+  }
+
+  /* 
+    2. 核心：控制整个联系页容器的最大宽度和居中
+       - max-width: 1100px 可以随你喜好调节（比如 900px 显得紧凑，1200px 显得大气宽敞）
+       - margin: 0 auto 让它完美居中，不再偏向一侧
+  */
+  main,
+  .nextra-content {
+    max-width: 1310px !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+  }
+`}</style>
+
+# 联系我
+
+如果您有任何想法、建议，或者想探讨合作，欢迎给我发送邮件！
+
+<Contact />
