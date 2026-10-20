@@ -7,30 +7,31 @@ import Contact from '@/components/Contact'
 
 
 <style>{`
-  /* 1. 彻底隐藏左右侧边栏、TOC 及反馈编辑栏 */
-  aside,
-  .nextra-toc,
-  nav[aria-label="table of contents"],
-  .nextra-sidebar-container,
+  /* 仅在桌面端（宽屏）隐藏侧边栏和右侧 TOC，避免影响移动端弹窗菜单 */
+  @media (min-width: 768px) {
+    aside:not([data-mobile]),
+    .nextra-toc,
+    nav[aria-label="table of contents"],
+    .nextra-sidebar-container {
+      display: none !important;
+    }
+  }
+
+  /* 隐藏页脚反馈和编辑链接 */
   .nextra-feedback,
-  .nextra-edit-link,
-  footer nav {
+  .nextra-edit-link {
     display: none !important;
   }
 
-  /* 
-    2. 核心：控制整个联系页容器的最大宽度和居中
-       - max-width: 1100px 可以随你喜好调节（比如 900px 显得紧凑，1200px 显得大气宽敞）
-       - margin: 0 auto 让它完美居中，不再偏向一侧
-  */
+  /* 页面容器宽度控制与居中 */
   main,
   .nextra-content {
-    max-width: 1310px !important;
+    max-width: 1100px !important;
     width: 100% !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    padding-left: 0rem !important;
-    padding-right: 0rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 `}</style>
 

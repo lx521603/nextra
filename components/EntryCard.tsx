@@ -124,7 +124,7 @@ export default function EntryCard() {
           {/* 右侧精致按钮：右对齐 + 不拉伸 */}
           <div style={{ display: 'flex', justifyContent: 'flex-end', flexShrink: 0 }}>
             <a
-              href="/docs"
+              href="/contact"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
