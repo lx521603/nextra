@@ -39,7 +39,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const { nextraLayout, head } = config;
 
   return (
-    <html lang="zh_CN" dir="ltr" className={outfit.variable} {...mantineHtmlProps}>
+    <html lang="zh_CN" dir="ltr" className={outfit.variable} data-scroll-behavior="smooth" {...mantineHtmlProps}>
       {/* Page background and primary colour of the Nextra theme, set to Mantine's: body
           #fff / #242424 and blue.6 (#228be6) / blue.4 (#4dabf7), as on mantine.dev. */}
       <Head
@@ -57,7 +57,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <body>
-        <MantineProvider theme={theme} defaultColorScheme={head.mantine.defaultColorScheme}>
+        <MantineProvider theme={theme} defaultColorScheme={head.mantine.defaultColorScheme || 'light'}>
           <Layout
             banner={
               <Banner storageKey={`release-notes-${pack.version}`}>
@@ -72,7 +72,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             sidebar={nextraLayout.sidebar}
             nextThemes={nextraLayout.nextThemes}
           >
-            {children}
+            {/* 加上一层安全检查，防止 children 为 undefined 时直接崩溃 */}
+            {children ? children : <div>Loading...</div>}
           </Layout>
           <BackToTop />
         </MantineProvider>
