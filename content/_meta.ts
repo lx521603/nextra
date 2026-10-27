@@ -10,17 +10,13 @@ export default {
   markdown: '',
   'inline-svg': 'Inline SVG',
   mantine: '',
-  api: '',
+
 
   '###': {
     type: 'separator',
     // title: 'My Items', // Title is optional
   },
-  versioning: {
-    theme: {
-      toc: false,
-    },
-  },
+
   'release-notes': '',
   test: {
     display: 'hidden',
@@ -38,6 +34,7 @@ export default {
   '1.getting-started': '快速开始',
 
   '3.online': '科学上网',
+  '4.note': '折腾笔记',
    blog: {
      display: 'hidden',
      theme: {
