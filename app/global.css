@@ -9,7 +9,6 @@
  * In this case we're going to fix a glitch with the text size in the code blocks. 
  */
 @layer overwrite {
-  
   html {
     scroll-behavior: smooth;
   }
@@ -52,18 +51,18 @@
       }
     }
   }
-/* ============================================================
+  /* ============================================================
      👇 在这里新增：强制锁死文章页宽度与居中，解决全屏顶边问题
      ============================================================ */
-  
+
   /* 针对 Nextra 4 博客/文档正文容器的宽度重载 */
   article.x\:prose,
   .nextra-content,
   main article {
-    max-width: 768px !important;       /* 限制最佳阅读宽度 (可改 800px) */
+    max-width: 768px !important; /* 限制最佳阅读宽度 (可改 800px) */
     margin-left: auto !important;
     margin-right: auto !important;
-    padding-left: 1.5rem !important;   /* 左右安全留白，绝不顶边 */
+    padding-left: 1.5rem !important; /* 左右安全留白，绝不顶边 */
     padding-right: 1.5rem !important;
     width: 100% !important;
     box-sizing: border-box !important;
@@ -79,26 +78,27 @@
 }
 
 main .nextra-content,
-  main article,
-  main .nx-prose,
-  main [class*="prose"],
-  main [class*="content"] {
-    max-width: 768px !important;       /* 黄金阅读宽度 768px */
-    width: 100% !important;
-    margin-left: auto !important;      /* 水平居中 */
-    margin-right: auto !important;
-    padding-left: 1.5rem !important;   /* 左右留白，防止顶边 */
-    padding-right: 1.5rem !important;
-    box-sizing: border-box !important;
-  }
+main article,
+main .nx-prose,
+main [class*='prose'],
+main [class*='content'] {
+  max-width: 768px !important; /* 黄金阅读宽度 768px */
+  width: 100% !important;
+  margin-left: auto !important; /* 水平居中 */
+  margin-right: auto !important;
+  padding-left: 1.5rem !important; /* 左右留白，防止顶边 */
+  padding-right: 1.5rem !important;
+  box-sizing: border-box !important;
+}
 
-  /* 3. 如果你的 BlogHeader 是单独放在 main 里面的组件 */
-  main header {
-    max-width: 768px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
-    box-sizing: border-box !important;
-  }
+/* 3. 如果你的 BlogHeader 是单独放在 main 里面的组件 */
+main header {
+  max-width: 768px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  box-sizing: border-box !important;
+}
+
 @layer components, mantine, nextra, overwrite;

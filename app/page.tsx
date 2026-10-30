@@ -2,9 +2,8 @@ import { Container } from '@mantine/core';
 import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeToggle';
 import { Content } from '@/components/Content/Content';
 
-import LiLanding from '@/components/LiLanding'
-import EntryCard from '@/components/EntryCard'
-
+import LiLanding from '@/components/LiLanding';
+import EntryCard from '@/components/EntryCard';
 
 export default function HomePage() {
   return (

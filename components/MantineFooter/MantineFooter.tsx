@@ -1,16 +1,7 @@
 'use client';
 
-import {
-  Anchor,
-  Container,
-  Divider,
-  Group,
-  Text,
-} from '@mantine/core';
-import {
-  IconBrandMantine,
-  IconBrandVercel,
-} from '@tabler/icons-react';
+import { Anchor, Container, Divider, Group, Text } from '@mantine/core';
+import { IconBrandMantine, IconBrandVercel } from '@tabler/icons-react';
 import packageJson from '../../package.json';
 import classes from './MantineFooter.module.css';
 

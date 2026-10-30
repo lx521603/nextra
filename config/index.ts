@@ -8,8 +8,7 @@ export default {
       default: '老李游记',
       template: '%s | 老李游记',
     },
-    description:
-      '老李游记',
+    description: '老李游记',
     metadataBase: new URL('https://next-app-nextra-template.vercel.app/'),
     keywords: [
       'Mantine',

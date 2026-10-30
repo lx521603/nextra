@@ -32,36 +32,36 @@ export default {
       },
     },
   },
- // about: {
- //   type: 'page',
+  // about: {
+  //   type: 'page',
   //  title: '关于',
   //  href: 'https://zaeth.com',
- // },
- // support: {
+  // },
+  // support: {
   //  title: '支持',
   //  type: 'menu',
   //  items: {
-      // Navigates to the home-page Sponsors wall — internal anchor,
-      // so Nextra shows no external arrow.
+  // Navigates to the home-page Sponsors wall — internal anchor,
+  // so Nextra shows no external arrow.
   //    sponsor: {
-   //     title: (
-   //       <Group component="span" gap={8} wrap="nowrap" align="center">
+  //     title: (
+  //       <Group component="span" gap={8} wrap="nowrap" align="center">
   //          <IconHeartFilled size={16} />
   //          文档
   //        </Group>
   //      ),
   //      href: '/docs',
   //    },
-      // External donation link — Nextra keeps the ↗ external indicator.
-    //  coffee: {
-   //     title: (
-   //       <Group component="span" gap={8} wrap="nowrap" align="center">
-   //         <IconCoffee size={16} />
-   //         x
+  // External donation link — Nextra keeps the ↗ external indicator.
+  //  coffee: {
+  //     title: (
+  //       <Group component="span" gap={8} wrap="nowrap" align="center">
+  //         <IconCoffee size={16} />
+  //         x
   //        </Group>
   //      ),
   //      href: 'https://x.com',
-   //   },
+  //   },
   //  },
- // },
+  // },
 };

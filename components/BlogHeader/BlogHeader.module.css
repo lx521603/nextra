@@ -1,17 +1,17 @@
 .header {
   width: 100%;
-  margin: 2rem auto 3rem auto; /* 👈 加上 margin-top: 2rem，和导航栏拉开距离 */
+  margin: 2rem auto 3rem; /* 👈 加上 margin-top: 2rem，和导航栏拉开距离 */
   padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+  border-bottom: 1px solid rgb(229, 231, 235, 0.8);
   box-sizing: border-box;
-  
+
   /* 👇 去掉左右 padding，让内容靠左贴边 */
   /* padding-left: 0; */
   /* padding-right: 0; */
 }
 
 :global(.dark) .header {
-  border-bottom-color: rgba(38, 38, 38, 0.8);
+  border-bottom-color: rgb(38, 38, 38, 0.8);
 }
 
 /* 顶部徽章 */
@@ -29,13 +29,14 @@
   letter-spacing: 0.025em;
   background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
   color: #1d4ed8;
-  border: 1px solid rgba(191, 219, 254, 0.6);
-  box-shadow: 0 1px 2px 0 rgba(37, 99, 235, 0.05);
+  border: 1px solid rgb(191, 219, 254, 0.6);
+  box-shadow: 0 1px 2px 0 rgb(37, 99, 235, 0.05);
 }
+
 :global(.dark) .badge {
-  background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(30, 64, 175, 0.2) 100%);
+  background: linear-gradient(135deg, rgb(30, 58, 138, 0.3) 0%, rgb(30, 64, 175, 0.2) 100%);
   color: #93c5fd;
-  border-color: rgba(30, 58, 138, 0.5);
+  border-color: rgb(30, 58, 138, 0.5);
 }
 
 /* 标题 - 只需要基础样式，渐变和动画由 TextAnimate 处理 */
@@ -55,6 +56,7 @@
   color: #64748b;
   margin-bottom: 1.5rem;
 }
+
 :global(.dark) .meta {
   color: #94a3b8;
 }
@@ -78,16 +80,19 @@
   text-decoration: none;
   color: #334155;
 }
+
 .author:hover {
   background-color: #f1f5f9;
   border-color: #cbd5e1;
   transform: translateY(-1px);
 }
+
 :global(.dark) .author {
   background-color: #18181b;
   border-color: #27272a;
   color: #e4e4e7;
 }
+
 :global(.dark) .author:hover {
   background-color: #27272a;
   border-color: #3f3f46;
@@ -98,7 +103,7 @@
   height: 1.5rem;
   border-radius: 9999px;
   object-fit: cover;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 1px rgb(0, 0, 0, 0.05);
 }
 
 .authorName {
@@ -110,6 +115,7 @@
   color: #cbd5e1;
   font-size: 0.75rem;
 }
+
 :global(.dark) .separator {
   color: #475569;
 }
@@ -119,6 +125,7 @@
   font-weight: 500;
   color: #64748b;
 }
+
 :global(.dark) .date {
   color: #94a3b8;
 }

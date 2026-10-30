@@ -1,37 +1,38 @@
-'use client'
+'use client';
 
-import { Container, Flex, Card, Title, Text, Stack, Box, Skeleton, Badge } from '@mantine/core'
-import { ReactNode, CSSProperties } from 'react'
-import Link from 'next/link'
-import ThemeImage from './ThemeImage'
+import { Container, Flex, Card, Title, Text, Stack, Box, Skeleton, Badge } from '@mantine/core';
+import { ReactNode, CSSProperties } from 'react';
+import Link from 'next/link';
+import ThemeImage from './ThemeImage';
 
-const defaultSkeleton = <Skeleton height="100%" radius="md" animate={false} />
+const defaultSkeleton = <Skeleton height="100%" radius="md" animate={false} />;
 
 export interface GridItemConfig {
-  title?: string
-  description?: string
-  content?: ReactNode
-  imageUrl?: string | { light: string; dark: string }
-  imageAlt?: string
-  desktopWidth?: string
-  imageHeight?: number
-  objectPosition?: CSSProperties['objectPosition']
-  href?: string
-  badge?: string
-  date?: string
-  isHorizontal?: boolean
+  title?: string;
+  description?: string;
+  content?: ReactNode;
+  imageUrl?: string | { light: string; dark: string };
+  imageAlt?: string;
+  desktopWidth?: string;
+  imageHeight?: number;
+  objectPosition?: CSSProperties['objectPosition'];
+  href?: string;
+  badge?: string;
+  date?: string;
+  isHorizontal?: boolean;
 }
 
 interface GridAsymmetricalProps {
-  items?: GridItemConfig[]
-  gap?: string | number
+  items?: GridItemConfig[];
+  gap?: string | number;
 }
 
 export default function GridAsymmetrical({ items = [], gap = '1rem' }: GridAsymmetricalProps) {
   return (
     <Container size="xl" my="md" p={0}>
-      <style dangerouslySetInnerHTML={{
-        __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
           .asym-responsive-card {
             width: 100% !important;
             flex: 1 1 100% !important;
@@ -78,19 +79,20 @@ export default function GridAsymmetrical({ items = [], gap = '1rem' }: GridAsymm
             box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.15);
             border-color: var(--mantine-color-blue-6) !important;
           }
-        `
-      }} />
+        `,
+        }}
+      />
 
       <Flex wrap="wrap" gap={gap} align="stretch">
         {items.map((item, index) => {
-          const lightImg = typeof item.imageUrl === 'object' ? item.imageUrl.light : item.imageUrl
-          const darkImg = typeof item.imageUrl === 'object' ? item.imageUrl.dark : item.imageUrl
+          const lightImg = typeof item.imageUrl === 'object' ? item.imageUrl.light : item.imageUrl;
+          const darkImg = typeof item.imageUrl === 'object' ? item.imageUrl.dark : item.imageUrl;
 
-          const defaultWidths = ['30%', '65%', '35%', '60%', '65%', '30%', '65%', '30%']
-          const desktopWidth = item.desktopWidth || defaultWidths[index % defaultWidths.length]
-          const imageHeight = item.imageHeight || 400
+          const defaultWidths = ['30%', '65%', '35%', '60%', '65%', '30%', '65%', '30%'];
+          const desktopWidth = item.desktopWidth || defaultWidths[index % defaultWidths.length];
+          const imageHeight = item.imageHeight || 400;
 
-          const CardWrapper = item.href ? Link : Box
+          const CardWrapper = item.href ? Link : Box;
 
           return (
             <Card
@@ -102,9 +104,11 @@ export default function GridAsymmetrical({ items = [], gap = '1rem' }: GridAsymm
               radius="md"
               withBorder
               className={`asym-responsive-card ${item.isHorizontal ? 'asym-card-horizontal' : ''}`}
-              style={{
-                '--desktop-width': desktopWidth,
-              } as React.CSSProperties}
+              style={
+                {
+                  '--desktop-width': desktopWidth,
+                } as React.CSSProperties
+              }
             >
               {lightImg ? (
                 <>
@@ -123,7 +127,12 @@ export default function GridAsymmetrical({ items = [], gap = '1rem' }: GridAsymm
                       </Badge>
                     )}
 
-                    <Box pos="relative" w="100%" h={imageHeight} style={{ overflow: 'hidden', height: '100%' }}>
+                    <Box
+                      pos="relative"
+                      w="100%"
+                      h={imageHeight}
+                      style={{ overflow: 'hidden', height: '100%' }}
+                    >
                       <ThemeImage
                         light={lightImg}
                         dark={darkImg || lightImg}
@@ -150,7 +159,10 @@ export default function GridAsymmetrical({ items = [], gap = '1rem' }: GridAsymm
                         </Text>
                       )}
                       {item.title && (
-                        <Title order={item.isHorizontal ? 3 : 4} style={{ transition: 'color 0.3s ease' }}>
+                        <Title
+                          order={item.isHorizontal ? 3 : 4}
+                          style={{ transition: 'color 0.3s ease' }}
+                        >
                           {item.title}
                         </Title>
                       )}
@@ -163,16 +175,20 @@ export default function GridAsymmetrical({ items = [], gap = '1rem' }: GridAsymm
                   )}
                 </>
               ) : item.content ? (
-                <Box p="md" h="100%" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Box
+                  p="md"
+                  h="100%"
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                >
                   {item.content}
                 </Box>
               ) : (
                 defaultSkeleton
               )}
             </Card>
-          )
+          );
         })}
       </Flex>
     </Container>
-  )
+  );
 }

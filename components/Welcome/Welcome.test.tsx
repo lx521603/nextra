@@ -1,10 +1,16 @@
-import { render, screen } from '@/test-utils';
+import { MantineProvider } from '@mantine/core';
+import { render, screen } from '@testing-library/react';
 import { Welcome } from './Welcome';
 
 describe('Welcome component', () => {
   it('has correct Next.js theming section link', () => {
-    render(<Welcome />);
-    expect(screen.getByText('this guide')).toHaveAttribute(
+    render(
+      <MantineProvider>
+        <Welcome />
+      </MantineProvider>
+    );
+
+    expect(screen.getByRole('link', { name: '联系我' })).toHaveAttribute(
       'href',
       'https://mantine.dev/guides/next/'
     );

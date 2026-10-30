@@ -1,11 +1,10 @@
-'use client'
+'use client';
 
-import { Text, Title, Button, Stack, Group, Anchor, Code, Container } from '@mantine/core'
-import { TextAnimate } from '@gfazioli/mantine-text-animate'
-import { IconExternalLink, IconBrandGithub, IconSparkles } from '@tabler/icons-react'
-import RotatingText from './RotatingText'
-import classes from './Hero.module.css'
-
+import { Text, Title, Button, Stack, Group, Anchor, Code, Container } from '@mantine/core';
+import { TextAnimate } from '@gfazioli/mantine-text-animate';
+import { IconExternalLink, IconBrandGithub, IconSparkles } from '@tabler/icons-react';
+import RotatingText from './RotatingText';
+import classes from './Hero.module.css';
 
 export default function Hero() {
   return (
@@ -15,17 +14,21 @@ export default function Hero() {
       <div className={classes.glowB} aria-hidden />
 
       <Stack align="center" ta="center" gap="lg" style={{ position: 'relative', zIndex: 2 }}>
-        
         {/* 顶部 Badge */}
-        <a href="https://zaeth.com" target="_blank" rel="noopener noreferrer" className={classes.badge}>
+        <a
+          href="https://zaeth.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={classes.badge}
+        >
           <IconSparkles size={16} />
           v2.0 刚刚发布，佛系更新中
         </a>
 
         {/* 主标题：静态高级渐变 + 动态跳动字 */}
-        <Title 
-          ta="center" 
-          fz={{ base: 42, sm: 56, md: 64 }} 
+        <Title
+          ta="center"
+          fz={{ base: 42, sm: 56, md: 64 }}
           lh={1.1}
           className={classes.headline}
           data-mantine-color-scheme="light" // 强制亮色渐变，或通过 CSS 变量控制
@@ -51,14 +54,18 @@ export default function Hero() {
         {/* 副标题：包含平滑轮转词 */}
         <Text c="dimmed" ta="center" size="xl" maw={650} mx="auto" lh={1.6}>
           在这里，每一次快门、每一段文字，都是{' '}
-          <RotatingText words={[
-            "对时光的温柔收藏",
-            "技术的深度探索",
-            "生活的真实点滴",
-            "光影的极致追求"
-          ]} />
-          。探索 <Anchor href="https://91.pt" target="_blank" underline="never" fw={600}>技术的边界</Anchor>，
-          感受 <Code fz="lg" variant="filled">生活</Code> 的温度。
+          <RotatingText
+            words={['对时光的温柔收藏', '技术的深度探索', '生活的真实点滴', '光影的极致追求']}
+          />
+          。探索{' '}
+          <Anchor href="https://91.pt" target="_blank" underline="never" fw={600}>
+            技术的边界
+          </Anchor>
+          ， 感受{' '}
+          <Code fz="lg" variant="filled">
+            生活
+          </Code>{' '}
+          的温度。
         </Text>
 
         {/* CTA 按钮组 */}
@@ -79,13 +86,13 @@ export default function Hero() {
                 '&:hover': {
                   transform: 'translateY(-2px)',
                   boxShadow: '0 6px 20px 0 rgba(37, 99, 235, 0.4)',
-                }
-              }
+                },
+              },
             }}
           >
             开始阅读
           </Button>
-          
+
           <Button
             component="a"
             href="https://github.com"
@@ -99,8 +106,7 @@ export default function Hero() {
             Github
           </Button>
         </Group>
-
       </Stack>
     </Container>
-  )
+  );
 }

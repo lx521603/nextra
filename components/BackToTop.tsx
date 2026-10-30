@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
-import { useWindowScroll } from '@mantine/hooks'
-import { ActionIcon, Affix, Transition, Tooltip } from '@mantine/core'
-import { IconArrowUp } from '@tabler/icons-react'
+import { useWindowScroll } from '@mantine/hooks';
+import { ActionIcon, Affix, Transition, Tooltip } from '@mantine/core';
+import { IconArrowUp } from '@tabler/icons-react';
 
 export default function BackToTop() {
-  const [scroll, scrollTo] = useWindowScroll()
+  const [scroll, scrollTo] = useWindowScroll();
 
   return (
     <Affix position={{ bottom: 32, right: 32 }} zIndex={100}>
@@ -38,5 +38,5 @@ export default function BackToTop() {
         )}
       </Transition>
     </Affix>
-  )
+  );
 }

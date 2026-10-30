@@ -13,7 +13,7 @@
   padding: 1.25rem;
   border-radius: 0.75rem;
   border: 1px solid #e5e7eb;
-  background-color: #ffffff;
+  background-color: #fff;
   text-decoration: none;
   transition: all 0.2s ease;
 }
@@ -21,7 +21,7 @@
 .card:hover {
   border-color: #3b82f6;
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 10px 25px -5px rgb(59, 130, 246, 0.15);
 }
 
 /* 深色模式适配 */
@@ -29,6 +29,7 @@
   border-color: #262626;
   background-color: #171717;
 }
+
 :global(.dark) .card:hover {
   border-color: #3b82f6;
   background-color: #262626;
@@ -49,16 +50,17 @@
 
 .card:hover .iconBox {
   background-color: #2563eb;
-  color: #ffffff;
+  color: #fff;
 }
 
 :global(.dark) .iconBox {
-  background-color: rgba(59, 130, 246, 0.1);
+  background-color: rgb(59, 130, 246, 0.1);
   color: #60a5fa;
 }
+
 :global(.dark) .card:hover .iconBox {
   background-color: #3b82f6;
-  color: #ffffff;
+  color: #fff;
 }
 
 .title {

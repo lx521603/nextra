@@ -30,7 +30,7 @@ export const MantineNavBar = () => {
         // 社区 Discord 链接
         chatLink="https://go.91.pt/discord"
         chatIcon={<DiscordIcon width="24" aria-label="Mantine Discord server" />}
-        
+
         // 社交/项目链接：Instagram
         projectLink="https://go.91.pt/instagram"
         projectIcon={<IconBrandInstagram size={24} aria-label="Instagram profile" />}

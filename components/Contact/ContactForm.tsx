@@ -1,28 +1,19 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import {
-  Button,
-  Group,
-  Notification,
-  Text,
-  Textarea,
-  TextInput,
-  Title,
-  Box,
-} from '@mantine/core'
-import { hasLength, isEmail, useForm } from '@mantine/form'
+import { useState } from 'react';
+import { Button, Group, Notification, Text, Textarea, TextInput, Title, Box } from '@mantine/core';
+import { hasLength, isEmail, useForm } from '@mantine/form';
 
 type FormValues = {
-  name: string
-  email: string
-  subject: string
-  message: string
-}
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
 
 export default function ContactForm() {
-  const [submitting, setSubmitting] = useState(false)
-  const [status, setStatus] = useState<'success' | 'error' | null>(null)
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<'success' | 'error' | null>(null);
 
   const form = useForm<FormValues>({
     mode: 'uncontrolled',
@@ -38,11 +29,11 @@ export default function ContactForm() {
       subject: hasLength({ min: 2 }, '主题至少需要 2 个字符'),
       message: hasLength({ min: 5 }, '留言内容至少需要 5 个字符'),
     },
-  })
+  });
 
   const handleSubmit = async (values: FormValues) => {
-    setSubmitting(true)
-    setStatus(null)
+    setSubmitting(true);
+    setStatus(null);
 
     try {
       const response = await fetch('https://formspree.io/f/mwlvjqlo', {
@@ -52,20 +43,20 @@ export default function ContactForm() {
           Accept: 'application/json',
         },
         body: JSON.stringify(values),
-      })
+      });
 
       if (response.ok) {
-        setStatus('success')
-        form.reset()
+        setStatus('success');
+        form.reset();
       } else {
-        setStatus('error')
+        setStatus('error');
       }
     } catch {
-      setStatus('error')
+      setStatus('error');
     } finally {
-      setSubmitting(false)
+      setSubmitting(false);
     }
-  }
+  };
 
   return (
     <Box p="xl" w="100%">
@@ -132,5 +123,5 @@ export default function ContactForm() {
         </Box>
       </form>
     </Box>
-  )
+  );
 }

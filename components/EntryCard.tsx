@@ -1,10 +1,19 @@
-'use client'
+'use client';
 
-import { IconArrowUpRight } from '@tabler/icons-react'
+import { IconArrowUpRight } from '@tabler/icons-react';
 
 export default function EntryCard() {
   return (
-    <div style={{ position: 'relative', zIndex: 2, margin: '1rem auto 2rem', width: '100%', maxWidth: '64rem', padding: '0 0rem' }}>
+    <div
+      style={{
+        position: 'relative',
+        zIndex: 2,
+        margin: '1rem auto 2rem',
+        width: '100%',
+        maxWidth: '64rem',
+        padding: '0 0rem',
+      }}
+    >
       <section
         style={{
           position: 'relative',
@@ -53,7 +62,15 @@ export default function EntryCard() {
         />
 
         {/* 强制 Flex 左右双列分流：左侧自适应铺满，右侧按钮固定在最右边 */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '1rem',
+          }}
+        >
           <div style={{ position: 'relative', flex: '1 1 300px' }}>
             {/* 胶囊 Label */}
             <span
@@ -149,5 +166,5 @@ export default function EntryCard() {
         </div>
       </section>
     </div>
-  )
+  );
 }

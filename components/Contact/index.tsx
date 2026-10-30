@@ -1,13 +1,10 @@
-import BlogBreadcrumbs, { BreadcrumbItem } from '@/components/BlogBreadcrumbs'
-import GridAsymmetrical from '@/components/GridAsymmetrical'
-import ContactForm from './ContactForm'
-import { Title, Text, Stack, Box } from '@mantine/core'
+import BlogBreadcrumbs, { BreadcrumbItem } from '@/components/BlogBreadcrumbs';
+import GridAsymmetrical from '@/components/GridAsymmetrical';
+import ContactForm from './ContactForm';
+import { Title, Text, Stack, Box } from '@mantine/core';
 
 export default function Contact() {
-  const contactBreadcrumbs: BreadcrumbItem[] = [
-    { title: '主页', href: '/' },
-    { title: '联系我' },
-  ]
+  const contactBreadcrumbs: BreadcrumbItem[] = [{ title: '主页', href: '/' }, { title: '联系我' }];
 
   return (
     <Box>
@@ -30,7 +27,11 @@ export default function Contact() {
             desktopWidth: 'calc(35% - 1.25rem)', // 适配 GridAsymmetrical 的 gap 间距
             // 🌟 核心修改：去掉外层的 <Card>，直接用带内边距和高度撑满的纯净 <Box>
             content: (
-              <Box p="xl" h="100%" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <Box
+                p="xl"
+                h="100%"
+                style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+              >
                 <Stack gap="md">
                   <Title order={3}>关于联系</Title>
                   <Text size="sm" c="dimmed" lh={1.6}>
@@ -46,5 +47,5 @@ export default function Contact() {
         ]}
       />
     </Box>
-  )
+  );
 }

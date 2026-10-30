@@ -5,7 +5,7 @@ import '@gfazioli/mantine-marquee/styles.css';
 import '@gfazioli/mantine-text-animate/styles.css';
 // Mantine theme overrides (page background, heading font)
 import '@/theme/global.css';
-import BackToTop from '@/components/BackToTop'
+import BackToTop from '@/components/BackToTop';
 import { Analytics } from '@vercel/analytics/react';
 import { Outfit } from 'next/font/google';
 import { Layout } from 'nextra-theme-docs';
@@ -39,7 +39,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const { nextraLayout, head } = config;
 
   return (
-    <html lang="zh_CN" dir="ltr" className={outfit.variable} data-scroll-behavior="smooth" {...mantineHtmlProps}>
+    <html
+      lang="zh_CN"
+      dir="ltr"
+      className={outfit.variable}
+      data-scroll-behavior="smooth"
+      {...mantineHtmlProps}
+    >
       {/* Page background and primary colour of the Nextra theme, set to Mantine's: body
           #fff / #242424 and blue.6 (#228be6) / blue.4 (#4dabf7), as on mantine.dev. */}
       <Head
@@ -57,12 +63,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <body>
-        <MantineProvider theme={theme} defaultColorScheme={head.mantine.defaultColorScheme || 'light'}>
+        <MantineProvider
+          theme={theme}
+          defaultColorScheme={head.mantine.defaultColorScheme || 'light'}
+        >
           <Layout
             banner={
               <Banner storageKey={`release-notes-${pack.version}`}>
-                ✨ 想联系我？ -{' '}
-                <a href="/contact">点击查看联系方式➡️</a>
+                ✨ 想联系我？ - <a href="/contact">点击查看联系方式➡️</a>
               </Banner>
             }
             navbar={<MantineNavBar />}
