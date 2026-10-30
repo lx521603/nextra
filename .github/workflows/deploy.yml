@@ -12,27 +12,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-
-      - name: Enable Corepack (for Yarn)
-        run: corepack enable
-
       - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12.16.1
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install --immutable
+        run: pnpm install --frozen-lockfile
 
       - name: Build Next.js project
         run: pnpm build
 
-      # 🌟 步骤 1：同步 standalone 产物
+      # 步骤 1：同步 standalone 产物
       - name: Deploy standalone to VPS
         uses: easingthemes/ssh-deploy@main
         with:
@@ -43,7 +40,7 @@ jobs:
           TARGET: "/opt/mirai/"
           ARGS: "-avz --delete"
 
-      # 🌟 步骤 2：同步 static 资源
+      # 步骤 2：同步 static 资源
       - name: Deploy static assets to VPS
         uses: easingthemes/ssh-deploy@main
         with:
@@ -54,7 +51,7 @@ jobs:
           TARGET: "/opt/mirai/.next/static/"
           ARGS: "-avz --delete"
 
-      # 🌟 步骤 3：同步 public 目录
+      # 步骤 3：同步 public 目录
       - name: Deploy public assets to VPS
         uses: easingthemes/ssh-deploy@main
         with:
@@ -65,7 +62,7 @@ jobs:
           TARGET: "/opt/mirai/public/"
           ARGS: "-avz --delete"
 
-      # 🌟 步骤 4：重启 PM2 服务
+      # 步骤 4：重启 PM2 服务
       - name: Restart PM2 service on VPS
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -77,8 +74,8 @@ jobs:
             pm2 delete mirai-app || true
             echo "=== 重启 Next.js 服务 ==="
             pm2 restart mirai-app --update-env || PORT=3004 HOSTNAME="0.0.0.0" pm2 start server.js --name "mirai-app"
-            
+
             pm2 save
-            
+
             echo "✅ Next.js 部署完成！当前状态："
             pm2 status
