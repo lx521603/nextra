@@ -15,22 +15,22 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 26
 
       - name: Enable Corepack (for Yarn)
         run: corepack enable
 
-      - name: Setup Yarn
+      - name: Setup pnpm
         uses: actions/setup-node@v4
         with:
-          node-version: 24
-          cache: 'yarn'
+          node-version: 26
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install --immutable
 
       - name: Build Next.js project
-        run: yarn build
+        run: pnpm build
 
       # 🌟 步骤 1：同步 standalone 产物
       - name: Deploy standalone to VPS
