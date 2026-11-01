@@ -35,6 +35,7 @@ export default {
 
   '3.online': '科学上网',
   '4.note': '折腾笔记',
+  'tools': '工具',
    blog: {
      display: 'hidden',
      theme: {
