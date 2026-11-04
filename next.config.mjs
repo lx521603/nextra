@@ -30,6 +30,9 @@ export default withNextra(
     },
     
     allowedDevOrigins: ['192.168.8.102'],
+
+    
+  
     
     // 👇 新加的位置：与 rewrites 平级
     async headers() {
