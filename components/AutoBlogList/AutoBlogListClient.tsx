@@ -42,7 +42,7 @@ export default function AutoBlogListClient({ posts }: { posts: Post[] }) {
 
       // 只有第一页的第一张为 100% 宽度，其余全部平分 50%
       desktopWidth: isFirstPageHero ? '100%' : 'calc(50% - 0.625rem)',
-      imageHeight: isFirstPageHero ? 380 : 320,
+      imageHeight: isFirstPageHero ? 380 : 360,
 
       // 只有第一页的第一张启用横向“左图右文”
       isHorizontal: isFirstPageHero,

@@ -95,7 +95,7 @@ export default function Hero() {
 
           <Button
             component="a"
-            href="https://github.com"
+            href="/blog"
             target="_blank"
             leftSection={<IconBrandGithub size={18} />}
             variant="default"
@@ -103,7 +103,7 @@ export default function Hero() {
             radius={100}
             size="lg"
           >
-            Github
+            Blog
           </Button>
         </Group>
       </Stack>
